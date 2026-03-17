@@ -1,0 +1,58 @@
+# =============================================================================
+# .gitignore para proyectos Terraform / OpenTofu
+# =============================================================================
+
+# ─── Estado de Terraform/OpenTofu ────────────────────────────────────────────
+# NUNCA commitear el estado — puede contener secrets y credenciales
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Lock file de dependencias — SÍ commitear en equipos (quitar de este ignore si querés)
+# .terraform.lock.hcl
+
+# ─── Directorio de trabajo interno ───────────────────────────────────────────
+.terraform/
+.tofu/
+
+# ─── Variables con valores sensibles ─────────────────────────────────────────
+# Los .tfvars pueden contener passwords, keys, etc.
+*.tfvars
+*.tfvars.json
+# Excepción: terraform.tfvars.ejemplo se puede commitear como referencia
+!terraform.tfvars.ejemplo
+
+# ─── Claves SSH generadas ────────────────────────────────────────────────────
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+
+# ─── Archivos de override (solo para uso local, no para equipo) ──────────────
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# ─── Archivos de plan ────────────────────────────────────────────────────────
+*.tfplan
+tfplan
+
+# ─── Logs y temporales ───────────────────────────────────────────────────────
+crash.log
+crash.*.log
+*.log
+
+# ─── Credenciales AWS ────────────────────────────────────────────────────────
+.env
+.env.*
+credentials
+aws-credentials*
+
+# ─── OS y editores ───────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
